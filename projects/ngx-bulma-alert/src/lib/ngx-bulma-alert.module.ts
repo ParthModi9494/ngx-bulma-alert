@@ -1,16 +1,11 @@
 import { NgModule } from '@angular/core';
-import { NgxBulmaAlertComponent } from './ngx-bulma-alert.component';
-
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxBulmaAlertComponent } from './components/ngx-bulma-alert.component';
 
 @NgModule({
-  declarations: [
-    NgxBulmaAlertComponent
-  ],
-  imports: [
-  ],
-  exports: [
-    NgxBulmaAlertComponent
-  ]
+  declarations: [NgxBulmaAlertComponent],
+  imports: [MatDialogModule, BrowserAnimationsModule],
+  exports: [NgxBulmaAlertComponent],
 })
-export class NgxBulmaAlertModule { }
+export class NgxBulmaAlertModule {}

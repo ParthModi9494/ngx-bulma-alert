@@ -1,0 +1,11 @@
+<div class="modal-card">
+  <header class="modal-card-head" [ngClass]="getHeaderClass(options.type)">
+    <p class="modal-card-title">{{ options?.title }}</p>
+    <button class="delete" aria-label="close" mat-dialog-close></button>
+  </header>
+  <section class="modal-card-body">{{ options?.content }}</section>
+  <footer class="modal-card-foot is-justify-content-flex-end">
+    <button class="button" [ngClass]="getButtonClass(options.type)" mat-dialog-close="true">{{ options?.confirmText }}</button>
+    <button class="button" mat-dialog-close>{{ options?.cancelText }}</button>
+  </footer>
+</div>

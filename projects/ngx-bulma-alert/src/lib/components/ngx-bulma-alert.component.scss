@@ -1,0 +1,7 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~bulma/css/bulma.css';
+
+.alert-dialog-container .mat-dialog-container {
+  padding: 0;
+  border-radius: 5px;
+}

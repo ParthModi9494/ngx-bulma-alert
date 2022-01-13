@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
-
 import { NgxBulmaAlertService } from './ngx-bulma-alert.service';
+
 
 describe('NgxBulmaAlertService', () => {
   let service: NgxBulmaAlertService;
