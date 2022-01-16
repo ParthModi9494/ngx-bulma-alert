@@ -11,12 +11,17 @@ export class AppComponent {
   constructor(private alertService: NgxBulmaAlertService) {}
 
   open() {
-    this.alertService.show({
-      type: 'info',
-      title: 'Some title',
-      content: 'Some content',
-      confirmText: 'Yes',
-      cancelText: 'Cancel',
-    });
+    this.alertService
+      .createAlert({
+        type: 'warning',
+        title: 'Confirm',
+        content:
+          'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+        confirmText: 'Yepp',
+        cancelText: 'No',
+      })
+      .onAlertDismiss.subscribe((res) => {
+        console.log(res);
+      });
   }
 }

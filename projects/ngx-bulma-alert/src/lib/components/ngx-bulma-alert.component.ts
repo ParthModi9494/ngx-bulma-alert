@@ -1,34 +1,29 @@
-import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { AlertOptions } from '../services/ngx-bulma-alert.service';
+import { animate, style, transition, trigger } from '@angular/animations';
+import { Component, OnInit } from '@angular/core';
+import { NgxBulmaAlertService } from '../services/ngx-bulma-alert.service';
 
 @Component({
   selector: 'ngx-bulma-alert',
   templateUrl: './ngx-bulma-alert.component.html',
   styleUrls: ['./ngx-bulma-alert.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  animations: [
+    trigger('fade', [
+      transition('void => *', [
+        style({ opacity: 0 }),
+        animate(200, style({ opacity: 1 })),
+      ]),
+      transition('* => void', [
+        style({ opacity: 1 }),
+        animate(200, style({ opacity: 0 })),
+      ]),
+    ]),
+  ],
 })
 export class NgxBulmaAlertComponent implements OnInit {
-  constructor(@Inject(MAT_DIALOG_DATA) public options: AlertOptions) {}
-
+  constructor(public ngxBulmaAlertService: NgxBulmaAlertService) {}
   ngOnInit(): void {}
 
-  getHeaderClass(type: string) {
-    switch (type) {
-      case 'success':
-        return 'has-background-success';
-      case 'info':
-        return 'has-background-info';
-      case 'warning':
-        return 'has-background-warning';
-      case 'danger':
-        return 'has-background-danger';
-      default:
-        return 'has-background-info';
-    }
-  }
-
-  getButtonClass(type: string) {
+  getClass(type: string | undefined) {
     switch (type) {
       case 'success':
         return 'is-success';
@@ -42,4 +37,5 @@ export class NgxBulmaAlertComponent implements OnInit {
         return 'is-info';
     }
   }
+
 }

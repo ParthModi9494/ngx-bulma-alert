@@ -1,11 +1,47 @@
-<div class="modal-card">
-  <header class="modal-card-head" [ngClass]="getHeaderClass(options.type)">
-    <p class="modal-card-title">{{ options?.title }}</p>
-    <button class="delete" aria-label="close" mat-dialog-close></button>
-  </header>
-  <section class="modal-card-body">{{ options?.content }}</section>
-  <footer class="modal-card-foot is-justify-content-flex-end">
-    <button class="button" [ngClass]="getButtonClass(options.type)" mat-dialog-close="true">{{ options?.confirmText }}</button>
-    <button class="button" mat-dialog-close>{{ options?.cancelText }}</button>
-  </footer>
+<div
+  @fade
+  *ngIf="ngxBulmaAlertService.alertRef?.isActive"
+  class="modal"
+  [ngClass]="{
+    'is-active': ngxBulmaAlertService.alertRef?.isActive
+  }"
+>
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head" style="padding: 0">
+      <div
+        class="notification"
+        style="width: 100%"
+        [ngClass]="getClass(ngxBulmaAlertService.alertRef?.alertOptions?.type)"
+      >
+        <button
+          class="delete"
+          (click)="ngxBulmaAlertService.alertRef?.close(false)"
+        ></button>
+        <h4 class="title is-4">
+          {{ ngxBulmaAlertService.alertRef?.alertOptions?.title || "" }}
+        </h4>
+      </div>
+    </header>
+    <section class="modal-card-body">
+      {{ ngxBulmaAlertService.alertRef?.alertOptions?.content || "" }}
+    </section>
+    <footer class="modal-card-foot is-justify-content-end">
+      <button
+        class="button"
+        (click)="ngxBulmaAlertService.alertRef?.close(false)"
+      >
+        {{
+          ngxBulmaAlertService.alertRef?.alertOptions?.cancelText || "Cancel"
+        }}
+      </button>
+      <button
+        class="button"
+        [ngClass]="getClass(ngxBulmaAlertService.alertRef?.alertOptions?.type)"
+        (click)="ngxBulmaAlertService.alertRef?.close(true)"
+      >
+        {{ ngxBulmaAlertService.alertRef?.alertOptions?.confirmText || "OK" }}
+      </button>
+    </footer>
+  </div>
 </div>
