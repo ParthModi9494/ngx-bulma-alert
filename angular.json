@@ -75,6 +75,7 @@
               "projects/ngx-bulma-alert-tester/src/assets"
             ],
             "styles": [
+              "node_modules/bulma/css/bulma.min.css",
               "projects/ngx-bulma-alert-tester/src/styles.scss"
             ],
             "scripts": []
