@@ -1,23 +1,12 @@
-<div
-  @fade
-  *ngIf="ngxBulmaAlertService.alertRef?.isActive"
-  class="modal"
-  [ngClass]="{
+<div @fade *ngIf="ngxBulmaAlertService.alertRef?.isActive" class="modal" [ngClass]="{
     'is-active': ngxBulmaAlertService.alertRef?.isActive
-  }"
->
+  }">
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head" style="padding: 0">
-      <div
-        class="notification"
-        style="width: 100%"
-        [ngClass]="getClass(ngxBulmaAlertService.alertRef?.alertOptions?.type)"
-      >
-        <button
-          class="delete"
-          (click)="ngxBulmaAlertService.alertRef?.close(false)"
-        ></button>
+      <div class="notification" style="width: 100%"
+        [ngClass]="getClass(ngxBulmaAlertService.alertRef?.alertOptions?.type)">
+        <button class="delete" (click)="ngxBulmaAlertService.alertRef?.close(false)"></button>
         <h4 class="title is-4">
           {{ ngxBulmaAlertService.alertRef?.alertOptions?.title || "" }}
         </h4>
@@ -27,20 +16,16 @@
       {{ ngxBulmaAlertService.alertRef?.alertOptions?.content || "" }}
     </section>
     <footer class="modal-card-foot is-justify-content-end">
-      <button
-        class="button"
-        (click)="ngxBulmaAlertService.alertRef?.close(false)"
-      >
+      <button *ngIf="ngxBulmaAlertService.alertRef?.alertOptions?.cancelText" class="button"
+        (click)="ngxBulmaAlertService.alertRef?.close(false)">
         {{
-          ngxBulmaAlertService.alertRef?.alertOptions?.cancelText || "Cancel"
+        ngxBulmaAlertService.alertRef?.alertOptions?.cancelText
         }}
       </button>
-      <button
-        class="button"
+      <button *ngIf="ngxBulmaAlertService.alertRef?.alertOptions?.confirmText" class="button"
         [ngClass]="getClass(ngxBulmaAlertService.alertRef?.alertOptions?.type)"
-        (click)="ngxBulmaAlertService.alertRef?.close(true)"
-      >
-        {{ ngxBulmaAlertService.alertRef?.alertOptions?.confirmText || "OK" }}
+        (click)="ngxBulmaAlertService.alertRef?.close(true)">
+        {{ ngxBulmaAlertService.alertRef?.alertOptions?.confirmText }}
       </button>
     </footer>
   </div>

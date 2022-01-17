@@ -13,10 +13,14 @@
     "url": "https://parthmodi.in"
   },
   "keywords": [
-    "angualr bulma alert",
+    "angular bulma alert",
     "bulma alert",
     "angular alert",
     "ngx alert"
   ],
-  "description": "A Bulma styled alert utility for Angular apps"
+  "description": "A Bulma styled alert utility for Angular apps",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ParthModi9494/ngx-bulma-alert"
+  }
 }
