@@ -2,6 +2,10 @@
 
 ![Demo Image](https://raw.githubusercontent.com/ParthModi9494/ngx-bulma-alert/master/projects/ngx-bulma-alert-tester/src/assets/danger.png?row=true)
 
+## Demo
+
+DEMO : <https://ngx-bulma-alert.stackblitz.io>
+
 ## Install
 
 ```bash
