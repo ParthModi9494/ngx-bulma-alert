@@ -23,5 +23,6 @@
     "type": "git",
     "url": "https://github.com/ParthModi9494/ngx-bulma-alert"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "homepage": "https://ngx-bulma-alert.stackblitz.io"
 }
