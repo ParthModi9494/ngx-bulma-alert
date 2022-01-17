@@ -22,5 +22,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/ParthModi9494/ngx-bulma-alert"
-  }
+  },
+  "license": "MIT"
 }

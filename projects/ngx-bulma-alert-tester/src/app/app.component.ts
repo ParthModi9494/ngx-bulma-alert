@@ -13,12 +13,11 @@ export class AppComponent {
   open() {
     this.alertService
       .createAlert({
-        type: 'warning',
+        type: 'success',
         title: 'Confirm',
         content:
           'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
         confirmText: 'Yepp',
-        cancelText: 'No',
       })
       .onAlertDismiss.subscribe((res) => {
         console.log(res);
