@@ -1,27 +1,106 @@
-# NgxBulmaAlert
+# ngx-bulma-alert
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+![Demo Image](https://raw.githubusercontent.com/ParthModi9494/ngx-bulma-alert/master/projects/ngx-bulma-alert-tester/src/assets/demo-img.png?row=true)
 
-## Development server
+## Demo
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+DEMO : <https://ngx-bulma-alert.stackblitz.io>
 
-## Code scaffolding
+## Install
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+npm i ngx-bulma-alert --save
+```
 
-## Build
+`bulma` package is a required dependency for the default alert styles
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+npm i bulma --save
+```
 
-## Running unit tests
+## Setup
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+**Step 1:** Add **NgxBulmaAlertModule** to app NgModule
 
-## Running end-to-end tests
+```typescript
+import { NgModule } from "@angular/core";
+import { AppComponent } from "./app.component";
+import { NgxBulmaAlertModule } from "ngx-bulma-alert";
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+@NgModule({
+  imports: [NgxBulmaAlertModule], // add a module
+  declarations: [AppComponent],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
 
-## Further help
+**Step 2:** Add default bulma styles
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- If you are using sass you can directly import it to your `styles.scss`.
+
+```scss
+@import 'bulma/css/bulma.min.css';
+```
+
+- If you are using angular-cli you can add it to your `angular.json`
+
+```ts
+"styles": [
+  "node_modules/bulma/css/bulma.min.css" // add here
+  "styles.scss",
+]
+```
+
+## Use
+
+```typescript
+import { Component } from "@angular/core";
+import { NgxBulmaAlertService } from "ngx-bulma-alert";
+
+@Component({
+  selector: "my-app",
+  // IMPORTANT : Add a selector to the root component
+  template: `<ngx-bulma-alert></ngx-bulma-alert>`,
+})
+export class AppComponent {
+  // Inject NgxBulmaAlertService
+  constructor(private alertService: NgxBulmaAlertService) {}
+
+  openAlert() {
+    this.alertService
+      .createAlert({
+        title: "Deleted?",
+        content: "This operation will delete the Item permanantly.",
+        confirmText: "Delete",
+        cancelText: "Cancel",
+        type: "danger",
+      })
+      .onAlertDismiss.subscribe((confirmed: boolean) => {
+        if (confirmed) {
+          // Proceed with an operation after User confirmation
+        }
+      });
+  }
+}
+```
+
+## Options
+
+| Options | Type | Default | Description |
+| -- | -- |--|--|
+| type | string `'success'`\|`'info'`\|`'warning'`\|`'danger'`|`'info'`|Type of the alert to show
+| title | string |`''`| Title of the alert box |
+| content | string |`''` | Body of the alert box |
+| confirmText | string | Confirm button will be hidden if not passed | Text of Confirm button |
+| cancelText | string | Cancel button will be hidden if not passed | Text of Cancel button |
+
+## License
+
+MIT
+
+---
+
+> GitHub [@ParthModi9494](https://github.com/ParthModi9494) &nbsp;&middot;&nbsp;
+> Twitter [@Parth_R_Modi](https://twitter.com/Parth_R_Modi) &nbsp;&middot;&nbsp;
+> Website [@parthmodi.in](https://parthmodi.in)
