@@ -1,6 +1,6 @@
 # ngx-bulma-alert
 
-![Demo Image](https://raw.githubusercontent.com/ParthModi9494/ngx-bulma-alert/master/projects/ngx-bulma-alert-tester/src/assets/danger.png?row=true)
+![Demo Image](https://raw.githubusercontent.com/ParthModi9494/ngx-bulma-alert/master/projects/ngx-bulma-alert-tester/src/assets/demo-img.png?row=true)
 
 ## Demo
 
@@ -9,7 +9,7 @@ DEMO : <https://ngx-bulma-alert.stackblitz.io>
 ## Install
 
 ```bash
-npm install ngx-bulma-alert --save
+npm i ngx-bulma-alert --save
 ```
 
 `bulma` package is a required dependency for the default alert styles
@@ -37,7 +37,7 @@ export class AppModule {}
 
 **Step 2:** Add default bulma styles
 
-- If you are using sass you can import the css.
+- If you are using sass you can directly import it to your `styles.scss`.
 
 ```scss
 @import 'bulma/css/bulma.min.css';
@@ -60,7 +60,7 @@ import { NgxBulmaAlertService } from "ngx-bulma-alert";
 
 @Component({
   selector: "my-app",
-  // Add a selector to the root component
+  // IMPORTANT : Add a selector to the root component
   template: `<ngx-bulma-alert></ngx-bulma-alert>`,
 })
 export class AppComponent {
@@ -79,8 +79,6 @@ export class AppComponent {
       .onAlertDismiss.subscribe((confirmed: boolean) => {
         if (confirmed) {
           // Proceed with an operation after User confirmation
-        } else {
-          // Proceed with an opeartion after User declines or Cancel the alert
         }
       });
   }
